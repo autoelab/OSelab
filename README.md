@@ -16,4 +16,4 @@ There's no database of solutions for OS elab, so we're just gonna have to make o
 - Even if one person solves a particular question, it will be solved for everyone.
 - This also means that *at least one person needs to solve the problem* for the rest.
 - Contribute to the database by adding new solutions!
-- Report generator is broken at the moment. Will fix later if needed.
+- Report generator is added too.
