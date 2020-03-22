@@ -15,6 +15,13 @@ def evaluate(code):
     data = {"courseName": "OPERATING-SYSTEMS", "code": code, "language": lang, "sid": questioncode, "qid": question['_id']}
     result = session.post(api+'student/question/evaluate', data=json.dumps(data), headers=headers)
     status = True if result.json()['response']['score'] == 100 else False
+    if status: 
+        try:
+            report = session.post(api+'shared/wkhtml', data=json.dumps(data), headers=headers).json()['response']
+            if not os.path.isdir('Reports'): 
+                os.mkdir('Reports')
+            open('Reports\\'+str(count).rjust(2,'0')+'.jpg', 'wb').write(base64.b64decode(report))
+        except: pass
     return(status)
 
 count = 0
